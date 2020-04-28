@@ -1,4 +1,4 @@
-module grpcDemo
+module grpcDeom-bistream
 
 go 1.13
 

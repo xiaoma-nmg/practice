@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-option go_package = ".;hello";
+package pb;
 
 service HelloServer {
-    rpc SayHi(HelloRequest) returns (HelloReplay) {}
-    rpc GetMsg(HelloRequest) returns (HelloMessage) {}
+    rpc SayHi(HelloRequest)returns(HelloReplay){}
+    rpc GetMsg(HelloRequest)returns(HelloMessage){}
 }
 
 message HelloRequest {
