@@ -48,7 +48,7 @@ func main() {
 			log.Printf("[SayHi] error:%#v\n", err)
 			return
 		}
-		fmt.Printf("SayHi result is [%s] \n", r1.GetResponse())
+		fmt.Printf("SayHi result is [%s] from [%s]\n", r1.GetResponse(), r1.GetFrom())
 
 		r2, err := client.GetMessage(context.Background(), &pb.SendMessage{
 			Message: "this is a test",
@@ -57,7 +57,7 @@ func main() {
 			log.Printf("[GetMessage] error:%#v\n", err)
 			return
 		}
-		fmt.Printf("GetMessage result is [%s]\n", r2.GetMessage())
+		fmt.Printf("GetMessage result is [%s] from [%s]\n", r2.GetMessage(), r2.GetFrom())
 
 		<-ticker.C
 	}

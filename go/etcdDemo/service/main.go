@@ -33,12 +33,14 @@ func (s *server) SayHi(ctx context.Context, in *pb.HelloRequest) (*pb.HelloRespo
 	log.Printf("[SayHi] recive [name:%s, age:%d]\n", in.Name, in.Age)
 	return &pb.HelloResponse{
 		Response: fmt.Sprintf("Hi %s, you age is %d", in.Name, in.Age),
+		From:     fmt.Sprintf("service addr is %s:%d", host, *Port),
 	}, nil
 }
 func (s *server) GetMessage(ctx context.Context, in *pb.SendMessage) (*pb.RecvMessage, error) {
 	log.Printf("[GetMessage] recive message [%s]\n", in.Message)
 	return &pb.RecvMessage{
 		Message: "this is for your",
+		From:    fmt.Sprintf("service addr is %s:%d", host, *Port),
 	}, nil
 }
 
