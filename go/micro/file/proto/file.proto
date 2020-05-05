@@ -1,0 +1,19 @@
+syntax="proto3";
+package pb;
+
+service File {
+  // 流式传输的服务接口
+  rpc File(stream FileSlice)returns(FileSliceMsg) {}
+}
+
+
+// 定义文件传输切片
+// 是stream类型通信的最小单位
+message FileSlice {
+  bytes byte = 1;
+  int64 len = 2;
+}
+
+message FileSliceMsg {
+  string file_name = 1;
+}
