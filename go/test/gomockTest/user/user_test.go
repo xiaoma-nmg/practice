@@ -4,6 +4,7 @@ import (
 	"errors"
 	"log"
 	"testing"
+	"time"
 
 	"github.com/golang/mock/gomock"
 )
@@ -26,4 +27,13 @@ func TestReturn(t *testing.T) {
 	log.Println(repo.FindOne(2))
 	log.Println(repo.FindOne(3))
 	//log.Println(repo.FindOne(4)) // 没有设置4的返回值，却执行了调用，测试不通过
+}
+
+func TestTime(t *testing.T) {
+	timeStr := time.Now().Format("2006-01-02")
+	today, _ := time.ParseInLocation("2006-01-02", timeStr, time.Local)
+	beginTimeNum := today.Unix()
+	endTimeNum := beginTimeNum + 86400
+	t.Log(beginTimeNum)
+	t.Log(endTimeNum)
 }
